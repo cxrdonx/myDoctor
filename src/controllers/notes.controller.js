@@ -1,7 +1,7 @@
 import Note from "../models/Note";
 
 export const renderNoteForm = (req, res) => {
-  res.render("notes/new-note");
+  res.render("pages/new-note");
 };
 
 export const createNewNote = async (req, res) => {
@@ -32,7 +32,8 @@ export const renderNotes = async (req, res) => {
   const notes = await Note.find({ user: req.user.id })
     .sort({ date: "desc" })
     .lean();
-  res.render("notes/all-notes", { notes });
+    console.log(notes);
+  res.render("pages/notes", { notes });
 };
 
 export const renderEditForm = async (req, res) => {

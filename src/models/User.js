@@ -7,7 +7,8 @@ const UserSchema = new Schema(
     email: { type: String, required: true, unique: true, trim: true },
     password: { type: String, required: true },
     date: { type: Date, default: Date.now },
-  },
+    rol:{type:[Number],  required: true},
+  }, 
   {
     timestamps: true,
     versionKey: false,

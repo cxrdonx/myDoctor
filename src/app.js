@@ -14,6 +14,8 @@ import config from "./config";
 import indexRoutes from "./routes/index.routes";
 import notesRoutes from "./routes/notes.routes";
 import userRoutes from "./routes/users.routes";
+import scheduled from "./routes/scheduled.routes";
+import patient from "./routes/patient.routes";
 import "./config/passport";
 
 // Initializations
@@ -23,6 +25,10 @@ createAdminUser();
 // settings
 app.set("port", config.PORT);
 app.set("views", path.join(__dirname, "views"));
+
+app.set("view engine", "ejs");
+
+/*
 app.engine(
   ".hbs",
   exphbs({
@@ -32,7 +38,7 @@ app.engine(
     extname: ".hbs",
   })
 );
-app.set("view engine", ".hbs");
+*/
 
 // middlewares
 app.use(morgan("dev"));
@@ -63,6 +69,8 @@ app.use((req, res, next) => {
 app.use(indexRoutes);
 app.use(userRoutes);
 app.use(notesRoutes);
+app.use(scheduled);
+app.use(patient);
 
 // static files
 app.use(express.static(path.join(__dirname, "public")));

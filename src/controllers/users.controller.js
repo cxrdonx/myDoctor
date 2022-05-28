@@ -37,7 +37,7 @@ export const singup = async (req, res) => {
   }
 };
 
-export const renderSigninForm = (req, res) => res.render("users/signin");
+export const renderSigninForm = (req, res) => res.render("pages/login");
 
 export const signin = passport.authenticate("local", {
   successRedirect: "/notes",

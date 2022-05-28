@@ -1,7 +1,7 @@
 export const renderIndex = (req, res) => {
-  res.render("index");
+  res.render("pages/index");
 };
 
 export const renderAbout = (req, res) => {
-  res.render("about");
+  res.render("pages/about");
 };
